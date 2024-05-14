@@ -8,14 +8,15 @@ from winsound import Beep
 
 # This variable controls the number of bars.
 amount = 20
-try:
+
+rcParams["toolbar"] = "None"
+pyplot.figure(facecolor="black")
+pyplot.subplots_adjust(left = 0, right = 1, bottom = 0)
+
+if isinstance(amount, int):
 
     lst: ndarray = random.randint(20, 150, amount)
     x = arange(0, amount, 1)
-
-    rcParams["toolbar"] = "None"
-    pyplot.figure(facecolor="black")
-    pyplot.subplots_adjust(left = 0, right = 1, bottom = 0)
 
     for i in range(len(lst)):
         for j in range(len(lst) - i - 1):
@@ -37,8 +38,11 @@ try:
 
             pyplot.pause(0.000000001)
             pyplot.clf()
+    
+    if amount != 0: pyplot.show()
+    else: print("\nAmount must not be zero.\n")
 
-except TypeError: print("\nAmount must be a non-zero integer.\n")
+else: print("\nAmount must be a non-zero integer\n")
 
 # n = len(lst)
 # swapped = False
@@ -72,6 +76,3 @@ except TypeError: print("\nAmount must be a non-zero integer.\n")
 
 #             pyplot.pause(0.000000001)
 #             pyplot.clf()
-
-if amount != 0: pyplot.show()
-else: print("\nAmount must not be zero.\n")
