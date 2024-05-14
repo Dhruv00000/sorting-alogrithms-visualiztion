@@ -7,34 +7,38 @@ from numpy import random, ndarray, arange
 from winsound import Beep
 
 # This variable controls the number of bars.
-amount: int = 10
-lst: ndarray = random.randint(20, 150, amount)
-x = arange(0, amount, 1)
+amount = 20
+try:
 
-rcParams["toolbar"] = "None"
-pyplot.figure(facecolor="black")
-pyplot.subplots_adjust(left = 0, right = 1, bottom = 0)
+    lst: ndarray = random.randint(20, 150, amount)
+    x = arange(0, amount, 1)
 
-for i in range(len(lst)):
-    for j in range(len(lst) - i - 1):
-        
-        barGraph = pyplot.bar(x, lst)
-        pyplot.axis('off') # Removing this line breaks the entire plot for some reason.
-        for Bar in barGraph: Bar.set_color("white")
+    rcParams["toolbar"] = "None"
+    pyplot.figure(facecolor="black")
+    pyplot.subplots_adjust(left = 0, right = 1, bottom = 0)
 
-        Beep((700 + int(800 * ((lst[j] - 20) / 130))), 40)
+    for i in range(len(lst)):
+        for j in range(len(lst) - i - 1):
+            
+            barGraph = pyplot.bar(x, lst)
+            pyplot.axis('off') # Removing this line breaks the entire plot for some reason.
+            for Bar in barGraph: Bar.set_color("white")
 
-        if lst[j] > lst[j + 1]:
-            barGraph[j].set_color('g')
-            barGraph[j + 1].set_color('r')
-            lst[j], lst[j + 1] = lst[j + 1], lst[j]
-        
-        else:
-            barGraph[j].set_color('r')
-            barGraph[j + 1].set_color('g')
+            Beep((700 + int(800 * ((lst[j] - 20) / 130))), 40)
 
-        pyplot.pause(0.000000001)
-        pyplot.clf()
+            if lst[j] > lst[j + 1]:
+                barGraph[j].set_color('g')
+                barGraph[j + 1].set_color('r')
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+            
+            else:
+                barGraph[j].set_color('r')
+                barGraph[j + 1].set_color('g')
+
+            pyplot.pause(0.000000001)
+            pyplot.clf()
+
+except TypeError: print("\nAmount must be a non-zero integer.\n")
 
 # n = len(lst)
 # swapped = False
@@ -69,4 +73,5 @@ for i in range(len(lst)):
 #             pyplot.pause(0.000000001)
 #             pyplot.clf()
 
-pyplot.show()
+if amount != 0: pyplot.show()
+else: print("\nAmount must not be zero.\n")
