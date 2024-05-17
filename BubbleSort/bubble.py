@@ -1,4 +1,5 @@
 #TODO: Make the sound functionaliy cross-platform.
+#      Test the window maximization code on other operating systems.
 #      Set the window to be maximized by default.
 #      Make audios play concurrently with the sorting algorithm, otherwise the audio will either sound awkward or it will be a bottleneck.
 
@@ -54,36 +55,3 @@ if isinstance(amount, int):
     if amount >= 3: pyplot.show()
 
 else: print("\nAmount must be a non-zero integer greater than two.\n")
-
-# n = len(lst)
-# swapped = False
-# # new_n = 0
-# while not swapped: # n <= 1
-
-#     swapped = False
-#     # new_n = 0
-
-#     for i in range(1, n -1):
-
-#             barPlot = pyplot.bar(x, lst)
-#             pyplot.axis('off')
-#             for Bar in barPlot: Bar.set_color("white")
-
-#             if lst[i - 1] > lst[i]:
-                    
-#                     barPlot[i].set_color('g')
-#                     barPlot[i + 1].set_color('r')
-
-#                     lst[i - 1], lst[i] = lst[i], lst[i -1]
-#                     swapped = True
-#                     # new_n = i
-            
-#             else:
-#                 barPlot[i].set_color('r')
-#                 barPlot[i + 1].set_color('g')
-
-#             n -= 1
-#             # n = new_n
-
-#             pyplot.pause(0.000000001)
-#             pyplot.clf()
