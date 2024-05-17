@@ -12,6 +12,7 @@ amount = 25
 rcParams["toolbar"] = "None"
 pyplot.figure(facecolor="black")
 pyplot.subplots_adjust(left = 0, right = 1, bottom = 0)
+pyplot.get_current_fig_manager().window.state('zoomed')
 
 if isinstance(amount, int):
 
